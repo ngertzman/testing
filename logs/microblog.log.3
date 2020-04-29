@@ -1,16 +1,43 @@
-2020-04-27 02:17:02,237 ERROR: Exception on /favicon.ico [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
+2020-04-29 00:48:05,279 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1925, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1907, in raise_routing_exception
-    raise request.routing_exception
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
-    result = self.url_adapter.match(return_rule=True)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
-    raise NotFound()
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connection.py", line 157, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/connection/http_urllib3.py", line 229, in perform_request
+    method, url, body, retries=Retry(False), headers=request_headers, **kw
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 720, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/util/retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 672, in urlopen
+    chunked=chunked,
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/http/client.py", line 1252, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/http/client.py", line 1298, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/http/client.py", line 1247, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connection.py", line 184, in connect
+    conn = self._new_conn()
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x1100d7c50>: Failed to establish a new connection: [Errno 61] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -19,53 +46,6 @@ Traceback (most recent call last):
     response = self.full_dispatch_request()
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1815, in handle_user_exception
-    return self.handle_http_exception(e)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1743, in handle_http_exception
-    return handler(e)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/errors.py", line 6, in not_found_error
-    return render_template('404.html'), 404
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/templates/404.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 3, in block "doc"
-    <html{% block html_attribs %}{% endblock html_attribs %}>
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 11, in block "html"
-    {%- endblock metas %}
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 12, in block "body"
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/templates/base.html", line 17, in block "navbar"
-    <a class="navbar-brand" href="{{ url_for('main.index') }}">Microblog</a>
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'index' instead?
-2020-04-27 02:17:45,462 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
-2020-04-27 02:17:52,900 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
@@ -76,45 +56,18 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/routes.py", line 232, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-AttributeError: type object 'Post' has no attribute 'search'
-2020-04-27 02:19:18,389 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
-2020-04-27 02:19:21,305 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/routes.py", line 232, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-AttributeError: type object 'Post' has no attribute 'search'
-2020-04-27 02:19:23,878 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/routes.py", line 232, in search
-    posts, total = Post.search(g.search_form.q.data, page,
-AttributeError: type object 'Post' has no attribute 'search'
+  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/routes.py", line 233, in search
+    current_app.config['POSTS_PER_PAGE'])
+  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/models.py", line 87, in search
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/search.py", line 22, in query_index
+    'from': (page - 1) * per_page, 'size': per_page})
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/client/utils.py", line 92, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/client/__init__.py", line 1627, in search
+    body=body,
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/transport.py", line 362, in perform_request
+    timeout=timeout,
+  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/connection/http_urllib3.py", line 241, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x1100d7c50>: Failed to establish a new connection: [Errno 61] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x1100d7c50>: Failed to establish a new connection: [Errno 61] Connection refused)

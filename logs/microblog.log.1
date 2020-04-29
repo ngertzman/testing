@@ -1,4 +1,4 @@
-2020-04-27 03:23:29,306 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
+2020-04-29 00:50:34,350 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connection.py", line 157, in _new_conn
     (self._dns_host, self.port), self.timeout, **extra_kw
@@ -37,7 +37,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/urllib3/connection.py", line 169, in _new_conn
     self, "Failed to establish a new connection: %s" % e
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x10902db90>: Failed to establish a new connection: [Errno 61] Connection refused
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x11011e810>: Failed to establish a new connection: [Errno 61] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -70,37 +70,10 @@ Traceback (most recent call last):
     timeout=timeout,
   File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/connection/http_urllib3.py", line 241, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x10902db90>: Failed to establish a new connection: [Errno 61] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x10902db90>: Failed to establish a new connection: [Errno 61] Connection refused)
-2020-04-27 03:23:42,136 ERROR: Exception on /search [GET] [in /Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/routes.py", line 233, in search
-    current_app.config['POSTS_PER_PAGE'])
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/models.py", line 87, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/Users/nathanielgertzman/Documents/Python/Flask/microblog/app/search.py", line 22, in query_index
-    'from': (page - 1) * per_page, 'size': per_page})
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/client/utils.py", line 92, in _wrapped
-    return func(*args, params=params, headers=headers, **kwargs)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/client/__init__.py", line 1627, in search
-    body=body,
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/transport.py", line 362, in perform_request
-    timeout=timeout,
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/connection/http_urllib3.py", line 248, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "/Users/nathanielgertzman/opt/anaconda3/lib/python3.7/site-packages/elasticsearch/connection/base.py", line 244, in _raise_error
-    status_code, error_message, additional_info
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x11011e810>: Failed to establish a new connection: [Errno 61] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x11011e810>: Failed to establish a new connection: [Errno 61] Connection refused)
+2020-04-29 00:56:29,912 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
+2020-04-29 01:51:03,613 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
+2020-04-29 02:26:37,695 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
+2020-04-29 02:35:03,326 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
+2020-04-29 11:42:33,442 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
+2020-04-29 13:59:27,897 INFO: Microblog startup [in /Users/nathanielgertzman/Documents/Python/Flask/microblog/app/__init__.py:54]
