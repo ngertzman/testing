@@ -78,12 +78,12 @@ class ChangePasswordForm(FlaskForm):
     password2 = PasswordField(_l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField(_l('Request Password Reset'))
 
-# class SearchForm(FlaskForm):
-#     q = StringField(_l('Search'), validators = [DataRequired()])
-#
-#     def __init__(self, *args, **kwargs):
-#         if 'formdata' not in kwargs:
-#             kwargs['formdata'] = request.args
-#         if 'csrf_enabled' not in kwargs:
-#             kwargs['csrf_enabled'] = False
-#         super(SearchForm, self).__init__(*args, **kwargs)
+class SearchForm(FlaskForm):
+    q = StringField(_l('Search'), validators = [DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)

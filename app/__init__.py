@@ -10,7 +10,7 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel
 import os
-# from elasticsearch import Elasticsearch
+from elasticsearch import Elasticsearch
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -23,8 +23,8 @@ bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
 
-# app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
-#     if app.config['ELASTICSEARCH_URL'] else None
+app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+    if app.config['ELASTICSEARCH_URL'] else None
 
 
 if not app.debug:
